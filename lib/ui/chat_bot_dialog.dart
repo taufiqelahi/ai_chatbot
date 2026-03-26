@@ -13,8 +13,6 @@ class ChatBotDialog extends StatefulWidget {
   final bool isFullPage;
   final String token;
 
-
-
   const ChatBotDialog({
     super.key,
     required this.appName,
@@ -41,7 +39,8 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
     super.initState();
     _messages.add(
       ChatMessage(
-        text: "👋 Hi! I'm ${widget.appName} Assistant.\nHow can I help you today?",
+        text:
+            "👋 Hi! I'm ${widget.appName} Assistant.\nHow can I help you today?",
         isUser: false,
       ),
     );
@@ -79,7 +78,10 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
           "The app details are: ${widget.appDescription}. "
           "User said: $text";
 
-      reply = await AIService.generateResponse(prompt: prompt, token: "");
+      reply = await AIService.generateResponse(
+        prompt: prompt,
+        token: widget.token,
+      );
     }
 
     if (!mounted) return;
@@ -110,11 +112,13 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color: widget.theme.predefinedButtonColor ??
+                color:
+                    widget.theme.predefinedButtonColor ??
                     widget.theme.sendButtonColor,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: widget.theme.predefinedButtonColor ??
+                  color:
+                      widget.theme.predefinedButtonColor ??
                       widget.theme.sendButtonColor ??
                       Colors.blueAccent,
                 ),
@@ -122,8 +126,7 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
               child: Text(
                 question,
                 style: TextStyle(
-                  color:
-                  widget.theme.predefinedButtonTextColor ?? Colors.white,
+                  color: widget.theme.predefinedButtonTextColor ?? Colors.white,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -152,7 +155,8 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
             color: widget.theme.botMessageColor ?? Colors.grey.shade200,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: widget.theme.predefinedContainerBorderColor ??
+              color:
+                  widget.theme.predefinedContainerBorderColor ??
                   Colors.grey.shade300,
             ),
           ),
@@ -172,17 +176,18 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
                   onTap: () => _sendMessage(question),
                   child: Container(
                     alignment: Alignment.centerLeft,
-                    constraints: const BoxConstraints(
-                      maxWidth: 260,
-                    ),
-                    padding: widget.theme.predefinedButtonPadding ??
+                    constraints: const BoxConstraints(maxWidth: 260),
+                    padding:
+                        widget.theme.predefinedButtonPadding ??
                         const EdgeInsets.symmetric(
                           horizontal: 12,
                           vertical: 10,
                         ),
-                    decoration: widget.theme.predefinedButtonDecoration ??
+                    decoration:
+                        widget.theme.predefinedButtonDecoration ??
                         BoxDecoration(
-                          color: widget.theme.predefinedButtonColor ??
+                          color:
+                              widget.theme.predefinedButtonColor ??
                               widget.theme.sendButtonColor?.withOpacity(0.12) ??
                               Colors.blue.shade50,
                           borderRadius: BorderRadius.circular(
@@ -190,7 +195,7 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
                           ),
                           border: Border.all(
                             color:
-                            widget.theme.predefinedButtonBorderColor ??
+                                widget.theme.predefinedButtonBorderColor ??
                                 widget.theme.sendButtonColor ??
                                 Colors.blueAccent,
                           ),
@@ -199,9 +204,11 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
                       question,
                       softWrap: true,
                       overflow: TextOverflow.visible,
-                      style: widget.theme.predefinedButtonTextStyle ??
+                      style:
+                          widget.theme.predefinedButtonTextStyle ??
                           TextStyle(
-                            color: widget.theme.predefinedButtonTextColor ??
+                            color:
+                                widget.theme.predefinedButtonTextColor ??
                                 widget.theme.sendButtonColor ??
                                 Colors.blueAccent,
                             fontWeight: FontWeight.w500,
@@ -216,6 +223,7 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
       ),
     );
   }
+
   Widget _buildPredefinedSection() {
     if (widget.showPredefinedAsChatMessages) {
       return _buildPredefinedButtonsAsMessages();
@@ -237,7 +245,8 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
         ),
         child: Text(
           msg.text,
-          style: widget.theme.messageTextStyle ??
+          style:
+              widget.theme.messageTextStyle ??
               TextStyle(
                 color: msg.isUser
                     ? widget.theme.userMessageTextColor
@@ -261,16 +270,19 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              if(!widget.isFullPage) ... [       Text(
-                "Chat with ${widget.appName}",
-                style: widget.theme.titleTextStyle ??
-                    TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: widget.theme.sendButtonColor,
-                    ),
-              ),
-                const Divider(),],
+              if (!widget.isFullPage) ...[
+                Text(
+                  "Chat with ${widget.appName}",
+                  style:
+                      widget.theme.titleTextStyle ??
+                      TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: widget.theme.sendButtonColor,
+                      ),
+                ),
+                const Divider(),
+              ],
               _buildPredefinedSection(),
               Expanded(
                 child: ListView.builder(
@@ -293,13 +305,15 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
                   Expanded(
                     child: TextField(
                       controller: _controller,
-                      decoration: widget.theme.textFieldDecoration ??
+                      decoration:
+                          widget.theme.textFieldDecoration ??
                           InputDecoration(
                             hintText: "Type your message...",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide(
-                                color: widget.theme.textFieldBorderColor ??
+                                color:
+                                    widget.theme.textFieldBorderColor ??
                                     Colors.grey,
                               ),
                             ),

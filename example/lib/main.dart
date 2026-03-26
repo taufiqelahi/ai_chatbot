@@ -1,3 +1,4 @@
+import 'package:ai_chat_bot/ai_chat_bot.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,22 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -38,15 +24,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -54,19 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -76,47 +40,51 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+      body: Stack(
+        children: [
+          // Your normal screen content
+          Center(child: Text("Main Screen")),
+          SmartChatBotHelper(
+            appName: "Plnze",
+            showPredefinedAsChatMessages: true,
+            openType: ChatBotOpenType.page,
+            appDescription:
+                "This is a professional social media application that combines communication, content sharing, meetings, and news in a single platform.The app automatically connects users with people from their device contacts, similar to WhatsApp, allowing them to find and interact with existing contacts easily. Users can create a professional profile, connect with friends and colleagues, and communicate through messaging.Users can share moments in the form of text posts, images, and videos, similar to modern social media platforms. The app also allows users to create and join online meetings with video and audio support, similar to Google Meet, for professional discussions, teamwork, and collaboration.Additionally, the app includes a built-in news feed that aggregates trusted global news sources, similar to Google News and Apple News. News categories include international, business, technology, sports, and politics, with sources such as CNN, Al Jazeera, and other verified publishers.The overall goal of the app is to provide a unified professional ecosystem where users can connect, communicate, collaborate, share updates, and stay informed—all within one secure and user-friendly application.",
+            predefinedButtons: {
+              "How to create a meetings?":
+                  "Go to the 'Meetings' tab on nav bar and click on 'Create Meeting'.",
+              "How to contact support?": "Use the 'Support' tab in the app.",
+              "What features does the app offer?":
+                  "You can share posts, create meetings, and chat with friends.",
+            },
+            predefinedMessages: {
+              "hi": "Hello there 👋, how can I help you today?",
+              "who are you": "I’m your virtual assistant for Plnze.",
+            },
+            theme: ChatBotTheme(
+              backgroundColor: Colors.white,
+              userMessageColor: Colors.blue,
+              userMessageTextColor: Colors.white,
+              botMessageColor: Colors.grey.shade200,
+              sendButtonColor: Colors.green,
+              predefinedButtonTextColor: Colors.red,
+              predefinedButtonTextStyle: const TextStyle(
+                color: Colors.black87,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+              predefinedButtonDecoration: BoxDecoration(
+                color: Colors.blue.shade50,
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: Colors.blueAccent),
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+            token:
+                "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",
+          ),
+        ],
       ),
     );
+    ;
   }
 }
