@@ -1,4 +1,5 @@
 import 'package:ai_chat_bot/ai_chat_bot.dart';
+import 'package:example/token.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             token:
-                "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",
+                "$token",
           ),
         ],
       ),

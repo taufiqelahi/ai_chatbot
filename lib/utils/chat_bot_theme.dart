@@ -22,6 +22,9 @@ class ChatBotTheme {
   final EdgeInsetsGeometry? predefinedButtonPadding;
   final Color? predefinedContainerBorderColor;
 
+  final Color? pageAppBarBgColor;
+  final TextStyle? pageAppBarTextStyle;
+
   const ChatBotTheme({
     this.backgroundColor,
     this.userMessageColor,
@@ -42,6 +45,9 @@ class ChatBotTheme {
     this.predefinedButtonBorderRadius,
     this.predefinedButtonPadding,
     this.predefinedContainerBorderColor,
+
+    this.pageAppBarBgColor,
+    this.pageAppBarTextStyle
   });
 
   factory ChatBotTheme.defaultTheme(Color primary) => ChatBotTheme(

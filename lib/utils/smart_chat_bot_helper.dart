@@ -20,6 +20,7 @@ class SmartChatBotHelper extends StatefulWidget {
 
 
 
+
   const SmartChatBotHelper({
     super.key,
     required this.appName,
@@ -30,6 +31,7 @@ class SmartChatBotHelper extends StatefulWidget {
     this.showPredefinedAsChatMessages = false,
     this.openType = ChatBotOpenType.bottomSheet,
     required this.token
+
   });
 
   @override
@@ -45,9 +47,12 @@ class _SmartChatBotHelperState extends State<SmartChatBotHelper> {
           builder: (_) => Scaffold(
             backgroundColor: widget.theme?.backgroundColor ?? Colors.white,
             appBar: AppBar(
-              title: Text(widget.appName),
+              title: Text(widget.appName,style: widget.theme?.messageTextStyle??TextStyle(
+                fontSize: 20,
+                color: Colors.black
+              ),),
               backgroundColor:
-              widget.theme?.sendButtonColor ?? Colors.blueAccent,
+              widget.theme?.pageAppBarBgColor ?? widget.theme?.sendButtonColor??Colors.blue,
               foregroundColor: Colors.white,
             ),
             body: ChatBotDialog(

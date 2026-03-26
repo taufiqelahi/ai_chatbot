@@ -223,7 +223,71 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
       ),
     );
   }
-
+  Widget _buildInputArea() {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+        border: Border.all(
+          color: (widget.theme.textFieldBorderColor ?? Colors.grey.shade300),
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: TextField(
+              controller: _controller,
+              minLines: 1,
+              maxLines: 4,
+              decoration: widget.theme.textFieldDecoration ??
+                  InputDecoration(
+                    hintText: "Type your message...",
+                    hintStyle: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14,
+                    ),
+                    border: InputBorder.none,
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 12,
+                    ),
+                  ),
+              onSubmitted: _sendMessage,
+            ),
+          ),
+          const SizedBox(width: 8),
+          Material(
+            color: widget.theme.sendButtonColor ?? Colors.blueAccent,
+            borderRadius: BorderRadius.circular(16),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () => _sendMessage(_controller.text),
+              child: Container(
+                height: 48,
+                width: 48,
+                alignment: Alignment.center,
+                child: Icon(
+                  widget.theme.sendIcon ?? Icons.send_rounded,
+                  color: Colors.white,
+                  size: 22,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
   Widget _buildPredefinedSection() {
     if (widget.showPredefinedAsChatMessages) {
       return _buildPredefinedButtonsAsMessages();
@@ -300,36 +364,37 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
                     color: widget.theme.sendButtonColor,
                   ),
                 ),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: _controller,
-                      decoration:
-                          widget.theme.textFieldDecoration ??
-                          InputDecoration(
-                            hintText: "Type your message...",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(
-                                color:
-                                    widget.theme.textFieldBorderColor ??
-                                    Colors.grey,
-                              ),
-                            ),
-                          ),
-                      onSubmitted: _sendMessage,
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.theme.sendIcon ?? Icons.send,
-                      color: widget.theme.sendButtonColor,
-                    ),
-                    onPressed: () => _sendMessage(_controller.text),
-                  ),
-                ],
-              ),
+              _buildInputArea()
+              // Row(
+              //   children: [
+              //     Expanded(
+              //       child: TextField(
+              //         controller: _controller,
+              //         decoration:
+              //             widget.theme.textFieldDecoration ??
+              //             InputDecoration(
+              //               hintText: "Type your message...",
+              //               border: OutlineInputBorder(
+              //                 borderRadius: BorderRadius.circular(12),
+              //                 borderSide: BorderSide(
+              //                   color:
+              //                       widget.theme.textFieldBorderColor ??
+              //                       Colors.grey,
+              //                 ),
+              //               ),
+              //             ),
+              //         onSubmitted: _sendMessage,
+              //       ),
+              //     ),
+              //     IconButton(
+              //       icon: Icon(
+              //         widget.theme.sendIcon ?? Icons.send,
+              //         color: widget.theme.sendButtonColor,
+              //       ),
+              //       onPressed: () => _sendMessage(_controller.text),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
