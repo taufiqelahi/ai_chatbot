@@ -1,5 +1,5 @@
 name: ai_chat_bot
-description: "A new Flutter package project."
+description: "A customizable Flutter AI chatbot widget with bottom sheet or full page mode, predefined prompts, and theme support."
 version: 0.0.1
 homepage:
 
