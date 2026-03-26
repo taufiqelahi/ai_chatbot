@@ -16,7 +16,7 @@ class AIService {
 
       print("🟢 [AIService] Sending request to: $url");
       print("🟡 [AIService] Request body: $body");
-      print("🟡 [AIService] Request token: $token");
+      // print("🟡 [AIService] Request token: $token");
 
       final response = await http.post(
         url,
