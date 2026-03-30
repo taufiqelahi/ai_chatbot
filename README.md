@@ -29,10 +29,9 @@ A customizable Flutter AI chatbot widget for adding smart assistant features int
 
 ## 📸 Preview
 
-<!-- Replace these with your real screenshots -->
 <p align="center">
-<img src="https://via.placeholder.com/250x500.png?text=Chat+Preview+1" width="250">
-<img src="https://via.placeholder.com/250x500.png?text=Chat+Preview+2" width="250">
+  <img src="https://raw.githubusercontent.com/taufiqelahi/ai_chatbot/main/assets/ss1.png" width="250"/>
+  <img src="https://raw.githubusercontent.com/taufiqelahi/ai_chatbot/main/assets/ss2.png" width="250"/>
 </p>
 
 ---
@@ -326,12 +325,7 @@ Made with ❤️ for the Flutter community
 
 ---
 
-## 📸 Preview
 
-<p align="center">
-  <img src="https://github.com/taufiqelahi/ai_chatbot/blob/main/assets/ss1.png" width="250"/>
-  <img src="https://github.com/taufiqelahi/ai_chatbot/blob/main/assets/ss2.png" width="250"/>
-</p>
 ```md
 
 
