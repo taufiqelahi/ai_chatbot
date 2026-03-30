@@ -1,6 +1,6 @@
-import 'package:ai_chat_bot/model/chat_message.dart';
-import 'package:ai_chat_bot/services/ai_service.dart';
-import 'package:ai_chat_bot/utils/chat_bot_theme.dart';
+import 'package:ai_chatbot/model/chat_message.dart';
+import 'package:ai_chatbot/services/ai_service.dart';
+import 'package:ai_chatbot/utils/chat_bot_theme.dart';
 import 'package:flutter/material.dart';
 
 class ChatBotDialog extends StatefulWidget {
