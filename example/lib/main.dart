@@ -34,12 +34,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       body: Stack(
         children: [
@@ -50,33 +44,34 @@ class _MyHomePageState extends State<MyHomePage> {
             showPredefinedAsChatMessages: true,
             openType: ChatBotOpenType.page,
             appDescription:
-            "Facebook is a social app where you can connect with friends, chat, and share what's on your mind. "
+                "Facebook is a social app where you can connect with friends, chat, and share what's on your mind. "
                 "You can find people from your contacts, send messages, and share photos and videos easily. "
                 "Stay connected with your friends, join meetings, and keep up with the latest news—all in one place.",
 
             predefinedButtons: {
               "How do I create a post?":
-              "Tap on 'What's on your mind?' at the top of your feed to create a post.",
+                  "Tap on 'What's on your mind?' at the top of your feed to create a post.",
 
               "How do I add a friend?":
-              "Go to a profile and tap on 'Add Friend' to send a request.",
+                  "Go to a profile and tap on 'Add Friend' to send a request.",
 
               "How do I send a message?":
-              "Open Messenger, choose a friend, and start chatting.",
+                  "Open Messenger, choose a friend, and start chatting.",
 
               "How do I upload a photo?":
-              "Tap on 'Photo/Video' while creating a post and select your media.",
+                  "Tap on 'Photo/Video' while creating a post and select your media.",
 
               "How do I see notifications?":
-              "Tap on the bell icon to check your latest notifications.",
+                  "Tap on the bell icon to check your latest notifications.",
 
               "How do I update my profile?":
-              "Go to your profile and tap 'Edit Profile' to update your info.",
+                  "Go to your profile and tap 'Edit Profile' to update your info.",
             },
 
             predefinedMessages: {
               "hi": "Hi 👋, welcome! How can I help you today?",
-              "who are you": "I’m your assistant 🤖, here to help you use the app.",
+              "who are you":
+                  "I’m your assistant 🤖, here to help you use the app.",
             },
 
             theme: ChatBotTheme(
@@ -98,11 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 border: Border.all(color: Colors.blueAccent),
               ),
             ),
-            token: "$token",
+            token: token,
           ),
         ],
       ),
     );
-    ;
   }
 }
