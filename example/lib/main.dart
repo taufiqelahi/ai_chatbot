@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Center(child: Text("Main Screen")),
           SmartChatBotHelper(
             appName: "Facebook",
-            showPredefinedAsChatMessages: false,
+            showPredefinedAsChatMessages: true,
             openType: ChatBotOpenType.page,
             appDescription:
             "Facebook is a social app where you can connect with friends, chat, and share what's on your mind. "
