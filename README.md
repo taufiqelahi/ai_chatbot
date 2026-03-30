@@ -330,7 +330,9 @@ Made with ❤️ for the Flutter community
 
 1. Replace preview images:
 ```md
-https://via.placeholder.com/...
+https://github.com/taufiqelahi/ai_chatbot/blob/main/assest/ss1.png
+
+https://github.com/taufiqelahi/ai_chatbot/blob/main/assest/ss2.png
 
 with real screenshots (upload to GitHub)
 
