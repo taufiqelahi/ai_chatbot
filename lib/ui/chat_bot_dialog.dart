@@ -32,8 +32,19 @@ class ChatBotDialog extends StatefulWidget {
 class _ChatBotDialogState extends State<ChatBotDialog> {
   final List<ChatMessage> _messages = [];
   final TextEditingController _controller = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
   bool _isLoading = false;
-
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
   @override
   void initState() {
     super.initState();
@@ -64,7 +75,7 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
       _controller.clear();
       _isLoading = true;
     });
-
+    _scrollToBottom();
     String reply;
 
     final predefinedResponse = _checkPredefinedMessages(text);
@@ -90,6 +101,7 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
       _messages.add(ChatMessage(text: reply, isUser: false));
       _isLoading = false;
     });
+    _scrollToBottom();
   }
 
   Widget _buildPredefinedButtonsHorizontal() {
@@ -99,7 +111,7 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
-      height: 40,
+      height: 50,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: widget.predefinedButtons.length,
@@ -110,25 +122,40 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
           return GestureDetector(
             onTap: () => _sendMessage(question),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              decoration: BoxDecoration(
-                color:
-                    widget.theme.predefinedButtonColor ??
-                    widget.theme.sendButtonColor,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color:
-                      widget.theme.predefinedButtonColor ??
-                      widget.theme.sendButtonColor ??
-                      Colors.blueAccent,
-                ),
-              ),
+              alignment: Alignment.center,
+              constraints: const BoxConstraints(minHeight: 40),
+              padding: widget.theme.predefinedButtonPadding ??
+                  const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+
+              // ✅ SAME DECORATION SUPPORT
+              decoration: widget.theme.predefinedButtonDecoration ??
+                  BoxDecoration(
+                    color: widget.theme.predefinedButtonColor ??
+                        widget.theme.sendButtonColor?.withOpacity(0.12) ??
+                        Colors.blue.shade50,
+                    borderRadius: BorderRadius.circular(
+                      widget.theme.predefinedButtonBorderRadius ?? 20,
+                    ),
+                    border: Border.all(
+                      color: widget.theme.predefinedButtonBorderColor ??
+                          widget.theme.sendButtonColor ??
+                          Colors.blueAccent,
+                    ),
+                  ),
+
               child: Text(
                 question,
-                style: TextStyle(
-                  color: widget.theme.predefinedButtonTextColor ?? Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
+                softWrap: true,
+                overflow: TextOverflow.visible,
+
+                // ✅ SAME TEXT STYLE SUPPORT
+                style: widget.theme.predefinedButtonTextStyle ??
+                    TextStyle(
+                      color: widget.theme.predefinedButtonTextColor ??
+                          widget.theme.sendButtonColor ??
+                          Colors.blueAccent,
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
             ),
           );
@@ -136,7 +163,6 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
       ),
     );
   }
-
   Widget _buildPredefinedButtonsAsMessages() {
     if (widget.predefinedButtons.isEmpty) {
       return const SizedBox.shrink();
@@ -347,12 +373,17 @@ class _ChatBotDialogState extends State<ChatBotDialog> {
                 ),
                 const Divider(),
               ],
-              _buildPredefinedSection(),
               Expanded(
                 child: ListView.builder(
-                  itemCount: _messages.length,
+                  controller: _scrollController,
+                  itemCount: _messages.length + 1,
                   itemBuilder: (context, index) {
-                    final msg = _messages[index];
+                    // 👇 Show predefined buttons as first item
+                    if (index == 0) {
+                      return _buildPredefinedSection();
+                    }
+
+                    final msg = _messages[index - 1];
                     return _buildMessageBubble(msg);
                   },
                 ),

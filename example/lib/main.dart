@@ -46,22 +46,39 @@ class _MyHomePageState extends State<MyHomePage> {
           // Your normal screen content
           Center(child: Text("Main Screen")),
           SmartChatBotHelper(
-            appName: "Plnze",
-            showPredefinedAsChatMessages: true,
+            appName: "Facebook",
+            showPredefinedAsChatMessages: false,
             openType: ChatBotOpenType.page,
             appDescription:
-                "This is a professional social media application that combines communication, content sharing, meetings, and news in a single platform.The app automatically connects users with people from their device contacts, similar to WhatsApp, allowing them to find and interact with existing contacts easily. Users can create a professional profile, connect with friends and colleagues, and communicate through messaging.Users can share moments in the form of text posts, images, and videos, similar to modern social media platforms. The app also allows users to create and join online meetings with video and audio support, similar to Google Meet, for professional discussions, teamwork, and collaboration.Additionally, the app includes a built-in news feed that aggregates trusted global news sources, similar to Google News and Apple News. News categories include international, business, technology, sports, and politics, with sources such as CNN, Al Jazeera, and other verified publishers.The overall goal of the app is to provide a unified professional ecosystem where users can connect, communicate, collaborate, share updates, and stay informed—all within one secure and user-friendly application.",
+            "Facebook is a social app where you can connect with friends, chat, and share what's on your mind. "
+                "You can find people from your contacts, send messages, and share photos and videos easily. "
+                "Stay connected with your friends, join meetings, and keep up with the latest news—all in one place.",
+
             predefinedButtons: {
-              "How to create a meetings?":
-                  "Go to the 'Meetings' tab on nav bar and click on 'Create Meeting'.",
-              "How to contact support?": "Use the 'Support' tab in the app.",
-              "What features does the app offer?":
-                  "You can share posts, create meetings, and chat with friends.",
+              "How do I create a post?":
+              "Tap on 'What's on your mind?' at the top of your feed to create a post.",
+
+              "How do I add a friend?":
+              "Go to a profile and tap on 'Add Friend' to send a request.",
+
+              "How do I send a message?":
+              "Open Messenger, choose a friend, and start chatting.",
+
+              "How do I upload a photo?":
+              "Tap on 'Photo/Video' while creating a post and select your media.",
+
+              "How do I see notifications?":
+              "Tap on the bell icon to check your latest notifications.",
+
+              "How do I update my profile?":
+              "Go to your profile and tap 'Edit Profile' to update your info.",
             },
+
             predefinedMessages: {
-              "hi": "Hello there 👋, how can I help you today?",
-              "who are you": "I’m your virtual assistant for Plnze.",
+              "hi": "Hi 👋, welcome! How can I help you today?",
+              "who are you": "I’m your assistant 🤖, here to help you use the app.",
             },
+
             theme: ChatBotTheme(
               backgroundColor: Colors.white,
               userMessageColor: Colors.blue,
@@ -69,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
               botMessageColor: Colors.grey.shade200,
               sendButtonColor: Colors.green,
               predefinedButtonTextColor: Colors.red,
+
               predefinedButtonTextStyle: const TextStyle(
                 color: Colors.black87,
                 fontSize: 14,
@@ -80,8 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 border: Border.all(color: Colors.blueAccent),
               ),
             ),
-            token:
-                "$token",
+            token: "$token",
           ),
         ],
       ),
