@@ -330,7 +330,7 @@ Made with ❤️ for the Flutter community
 
 <p align="center">
   <img src="https://github.com/taufiqelahi/ai_chatbot/blob/main/assets/ss1.png" width="250"/>
-  <img src="https://raw.githubusercontent.com/taufiqelahi/ai_chatbot/main/assest/ss2.png" width="250"/>
+  <img src="https://github.com/taufiqelahi/ai_chatbot/blob/main/assets/ss2.png" width="250"/>
 </p>
 ```md
 
