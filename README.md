@@ -326,15 +326,14 @@ Made with ❤️ for the Flutter community
 
 ---
 
-## 🔥 Important (do this before publishing)
+## 📸 Preview
 
-1. Replace preview images:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/taufiqelahi/ai_chatbot/main/assest/ss1.png" width="250"/>
+  <img src="https://raw.githubusercontent.com/taufiqelahi/ai_chatbot/main/assest/ss2.png" width="250"/>
+</p>
 ```md
-https://github.com/taufiqelahi/ai_chatbot/blob/main/assest/ss1.png
 
-https://github.com/taufiqelahi/ai_chatbot/blob/main/assest/ss2.png
-
-with real screenshots (upload to GitHub)
 
 Remove any real API key from repo
 Update version:
