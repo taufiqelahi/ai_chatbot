@@ -1,7 +1,7 @@
 
-import 'package:ai_chatbot/ui/chat_bot_dialog.dart';
-import 'package:ai_chatbot/utils/chat_bot_button.dart';
-import 'package:ai_chatbot/utils/chat_bot_theme.dart';
+import 'package:ai_chat_bot_flutter/ui/chat_bot_dialog.dart';
+import 'package:ai_chat_bot_flutter/utils/chat_bot_button.dart';
+import 'package:ai_chat_bot_flutter/utils/chat_bot_theme.dart';
 import 'package:flutter/material.dart';
 
 enum ChatBotOpenType {

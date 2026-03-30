@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:ai_chatbot/ai_chat_bot.dart';
+import 'package:ai_chat_bot_flutter/ai_chat_bot.dart';
 
 void main() {
   // test('adds one to input values', () {
