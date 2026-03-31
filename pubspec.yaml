@@ -1,6 +1,6 @@
 name: ai_chat_bot_flutter
 description: "A customizable Flutter AI chatbot widget with bottom sheet or full page mode, predefined prompts, and theme support."
-version: 1.0.0
+version: 1.0.0+1
 homepage: https://github.com/taufiqelahi/ai_chatbot.git
 
 environment:

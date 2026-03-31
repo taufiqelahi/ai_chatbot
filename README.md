@@ -42,7 +42,7 @@ Add to your `pubspec.yaml`:
 
 ```
 dependencies:
-  ai_chat_bot: ^0.0.1
+  ai_chat_bot: ^1.0.0+1
   
 ```
  Then run:
@@ -323,13 +323,3 @@ Made with ❤️ for the Flutter community
 </p>
 
 
----
-
-
-```md
-
-
-Remove any real API key from repo
-Update version:
-version: 0.0.1
-```
