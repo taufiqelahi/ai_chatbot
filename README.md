@@ -5,10 +5,14 @@ A customizable Flutter AI chatbot widget for adding smart assistant features int
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/pub/v/ai_chat_bot">
-<img src="https://img.shields.io/pub/likes/ai_chat_bot">
-<img src="https://img.shields.io/pub/points/ai_chat_bot">
-<img src="https://img.shields.io/pub/popularity/ai_chat_bot">
+  <a href="https://pub.dev/packages/ai_chat_bot_flutter">
+    <img src="https://img.shields.io/pub/v/ai_chat_bot_flutter">
+  </a>
+  <a href="https://pub.dev/packages/ai_chat_bot_flutter/score">
+    <img src="https://img.shields.io/pub/likes/ai_chat_bot_flutter">
+    <img src="https://img.shields.io/pub/points/ai_chat_bot_flutter">
+    <img src="https://img.shields.io/pub/popularity/ai_chat_bot_flutter">
+  </a>
 </p>
 
 ---
@@ -42,7 +46,7 @@ Add to your `pubspec.yaml`:
 
 ```
 dependencies:
-  ai_chat_bot: ^1.0.0+1
+  ai_chat_bot: ^1.0.0+2
   
 ```
  Then run:

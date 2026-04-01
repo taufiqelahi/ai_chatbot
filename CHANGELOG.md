@@ -1,4 +1,14 @@
 # 📄 Changelog
+## [1.0.0+2] - Update ✨
+
+### 🔧 Fixed
+- Fixed pub.dev badge links (version, likes, points, popularity)
+- Improved README rendering issues
+
+### ⚡ Improved
+- Minor performance improvements in chatbot UI
+- Better stability for API response handling
+---
 
 ## [1.0.0+1] - Initial Release 🚀
 
